@@ -16,7 +16,7 @@ jobs:
    - name: Set up PHP
      uses: shivammathur/setup-php@v2
      with:
-       php-version: '8.2'  # Adjust based on your PHP version
+       php-version: '8.1'  # Adjust based on your PHP version
 
    - name: Install dependencies
      run: composer install --no-dev --prefer-dist --no-progress --no-suggest
@@ -37,6 +37,6 @@ jobs:
        username: ${{ secrets.SSH_USER }}
        key: ${{ secrets.SSH_KEY }}
        script: |
-         cd /var/www/laravel
+         cd /var/www/html/cardio
          php artisan migrate --force
          php artisan config:cache
