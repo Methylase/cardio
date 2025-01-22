@@ -27,11 +27,11 @@ jobs:
     - name: Copy files to server
       uses: easingthemes/ssh-deploy@v2.1.5
       env:
-       host: ${{ secrets.SERVER_IP }}
-       username: ${{ secrets.SSH_USER }}
-       key: ${{ secrets.SSH_KEY }}
-       source: "."
-       target: "/var/www/html"
+       SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+       SOURCE: "."
+       REMOTE_HOST: ${{ secrets.SERVER_IP }}
+       REMOTE_USER: ${{ secrets.SSH_USER }}
+       TARGET: "/var/www/html"
     - name: Execute remote commands
       uses: appleboy/ssh-action@v0.1.6
       with:
