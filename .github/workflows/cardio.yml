@@ -41,6 +41,6 @@ jobs:
             php artisan view:cache
           EOF
         env:
-          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_HOST: ${{ secrets.SERVER_IP }}
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
