@@ -27,7 +27,6 @@ jobs:
        host: ${{ secrets.SERVER_IP }}
        username: ${{ secrets.SSH_USER }}
        key: ${{ secrets.SSH_KEY }}
-       source: "./"
        target: "/var/www/html"
 
    - name: Execute remote commands
