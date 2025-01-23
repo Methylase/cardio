@@ -22,18 +22,11 @@ jobs:
         run: |
           composer install --no-progress --prefer-dist
 
-      - name: Deploy to server via SSH
-        uses: easingthemes/ssh-deploy@v5.0.0
-        with:
+      - name: Deploy to EC2
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           REMOTE_HOST: ${{ secrets.SERVER_IP }}
           REMOTE_USER: ${{ secrets.SSH_USER }}
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SCRIPT_AFTER: |
-            cd /var/www/html
-            git pull origin main
-            composer install --no-dev --optimize-autoloader
-            php artisan migrate --force
-            php artisan config:cache
-            php artisan route:cache
-            php artisan view:cache
+          TARGET: ${{ secrets.TARGET_DIR }}
           
