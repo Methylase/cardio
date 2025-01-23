@@ -24,7 +24,7 @@
          with:
            host: ${{ secrets.SERVER_IP }}
            username: ${{ secrets.SSH_USER }}
-           key: ${{ secrets.SSH_KEY }}
+           key: ${{ secrets.SSH_PRIVATE_KEY }}
            source: "./"
            target: "/var/www/html"
 
@@ -33,7 +33,7 @@
          with:
            host: ${{ secrets.SERVER_IP }}
            username: ${{ secrets.SSH_USER }}
-           key: ${{ secrets.SSH_KEY }}
+           key: ${{ secrets.SSH_PRIVATE_KEY }}
            script: |
              cd /var/www/html
 	     sudo chgrp -R www-data storage bootstrap/cache
