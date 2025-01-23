@@ -34,8 +34,8 @@
            username: ${{ secrets.SSH_USER }}
            key: ${{ secrets.SSH_PRIVATE_KEY }}
            script: |
-            cd /var/www/html
-	    sudo chgrp -R www-data storage bootstrap/cache
-            sudo chmod -R ug+rwx storage bootstrap/cache
-            php artisan migrate --force
-            php artisan config:cache
+             cd /var/www/html
+	     sudo chgrp -R www-data storage bootstrap/cache
+             sudo chmod -R ug+rwx storage bootstrap/cache
+             php artisan migrate --force
+             php artisan config:cache
